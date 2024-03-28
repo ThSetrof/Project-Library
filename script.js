@@ -25,5 +25,29 @@ function addBookToLibrary(){
 }
 
 function displayBooks(){
+    
+}
 
+function createBookElement(book){
+    const titleLabel = document.createElement('label')
+    const authorLabel = document.createElement('label');
+    const pagesLabel = document.createElement('label')
+
+    const title = document.createElement('h2');
+    const author = document.createElement('p');
+    const pages = document.createElement('p');
+
+    titleLabel.textContent = 'Title: '
+    authorLabel.textContent = 'Author: '
+    pagesLabel.textContent = 'Pages: '
+
+    title.textContent = book.title
+    author.textContent = book.author
+    pages.textContent = book.pages
+
+    const bookElement = document.createElement('div');
+    
+    bookElement.append(titleLabel, title, authorLabel, author, pagesLabel, pages)
+
+    return bookElement;
 }
