@@ -25,7 +25,9 @@ function addBookToLibrary(){
 }
 
 function displayBooks(){
-    
+    myLibrary.forEach(book =>{
+        bookContainer.appendChild(createBookElement(book))
+    }) 
 }
 
 function createBookElement(book){
@@ -46,7 +48,7 @@ function createBookElement(book){
     pages.textContent = book.pages
 
     const bookElement = document.createElement('div');
-    
+
     bookElement.append(titleLabel, title, authorLabel, author, pagesLabel, pages)
 
     return bookElement;
