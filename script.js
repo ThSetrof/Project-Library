@@ -1,55 +1,111 @@
-const myLibrary = [];
-const bookContainer = document.querySelector('.container')
+const library = []
 
-function Book(title, auhtor, pages, read = false){
+const bookTemplate = document.querySelector('.book')
+const bookContainer = document.querySelector('.book-container')
+
+const addNewBookBtn = document.querySelector('#add-new')
+const bookForm = document.querySelector('dialog');
+const addBtn = bookForm.querySelector('#add-btn');
+console.log(addBtn)
+
+bookContainer.removeChild(bookTemplate)
+
+function Book(title, author, pages, read = false){
     this.title = title
-    this.auhtor = auhtor
+    this.author = author
     this.pages = pages
     this.read = read
 }
 
-myLibrary.push(new Book('Midnight', 'Kelvin Monteiro', 112))
-myLibrary.push(new Book('O Homem do Futuro', 'Thomas Setrof', 256))
-myLibrary.push(new Book('To the moon', 'Hiroshi Nakata', 354))
+function addBookToLibrary(title, author, pages, read){
+    const book = new Book(title, author, pages, read)
 
+    library.push(book)
 
-function addBookToLibrary(){
-    let title = prompt('Title: ');
-    let author = prompt('Author: ');
-    let pages = prompt('Nr. Pages: ');
-
-    const book = new Book(title, author, pages);
-
-    myLibrary.push(book);
-
+    return book;
 }
 
-function displayBooks(){
-    myLibrary.forEach(book =>{
-        bookContainer.appendChild(createBookElement(book))
-    }) 
+function displayAllBooks(){
+    let idx = 0
+    library.forEach(book => {
+        const bookElement = createNewBookElement(book)
+        bookElement.setAttribute('data-index', idx++)
+        bookContainer.appendChild(bookElement)
+    })
 }
 
-function createBookElement(book){
-    const titleLabel = document.createElement('label')
-    const authorLabel = document.createElement('label');
-    const pagesLabel = document.createElement('label')
+function updateBookIndex(){
+    let idx  = 0
+    for(const child of bookContainer.children){
+        child.setAttribute('data-index', idx++);
+    }
+}
 
-    const title = document.createElement('h2');
-    const author = document.createElement('p');
-    const pages = document.createElement('p');
 
-    titleLabel.textContent = 'Title: '
-    authorLabel.textContent = 'Author: '
-    pagesLabel.textContent = 'Pages: '
+function deleteBookFromLibrary(index){
+    library.splice(index, 1)
+}
+
+function createNewBookElement(book){
+    const bookElement = bookTemplate.cloneNode(true)
+
+    const title = bookElement.querySelector('.title')
+    const author = bookElement.querySelector('.author')
+    const pages = bookElement.querySelector('.pages')
+    const read = bookElement.querySelector('.read')
+    const deleteBtn = bookElement.querySelector('button')
 
     title.textContent = book.title
-    author.textContent = book.author
-    pages.textContent = book.pages
+    author.textContent = 'by ' + book.author
+    pages.textContent = book.pages + ' pages'
+    read.checked = book.read
 
-    const bookElement = document.createElement('div');
+    bookElement.setAttribute('data-index', library.length - 1)
 
-    bookElement.append(titleLabel, title, authorLabel, author, pagesLabel, pages)
+    deleteBtn.addEventListener('click', e =>{
+        deleteBookFromLibrary(bookElement.getAttribute('data-index'))
+        bookContainer.removeChild(bookElement)
+        updateBookIndex()
+    })
+
+    read.addEventListener('change' , e => {
+        book.read = read.checked
+    })
 
     return bookElement;
+
 }
+
+function createBookFromUserInput(event){
+  
+    event.preventDefault()
+
+    const title = bookForm.querySelector('#titleInput').value
+    const author = bookForm.querySelector('#authorInput').value
+    const pages = parseInt(bookForm.querySelector('#pagesInput').value) 
+    const read = bookForm.querySelector('#is-read').checked
+
+   
+
+
+    const book = addBookToLibrary(title, author, pages, read)
+
+    const bookElement = createNewBookElement(book);
+
+    bookContainer.appendChild(bookElement)
+
+    bookForm.querySelector('form').reset()
+    bookForm.close()
+
+}
+
+
+
+addNewBookBtn.addEventListener('click', e => bookForm.showModal())
+addBtn.addEventListener('click', createBookFromUserInput)
+
+addBookToLibrary('To the Moon', 'Tom Mich', 192, false)
+addBookToLibrary('The First Man', 'Albert Camus', 435, true)
+addBookToLibrary('The Creative Way', 'Rick Rubin', 254, false)
+
+displayAllBooks()

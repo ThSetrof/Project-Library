@@ -1,0 +1,184 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Fira-Code, sans-serif;
+}
+
+:root{
+    --btn-color: #409d69;
+}
+
+header {
+    display: flex;
+    gap: 36px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 36px;
+
+    
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    align-content: center;
+    width: 100vw;
+    padding: 12px;
+
+    border: 1px solid black;
+
+    
+
+}
+
+button{
+    padding: 12px 24px;
+    border-radius: 4px;
+    width: fit-content;
+    margin-bottom: 24px;
+    background-color: var(--btn-color);
+    color: white;
+    font-weight: 600;
+    border: none;
+}
+
+button:hover{
+    scale: 1.05;
+}
+
+.book-container {
+    display: grid;
+    gap: 12px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 250px));
+}
+
+.book {
+    display: flex;
+    border: 2px solid #409d69;
+    border-radius: 8px;
+    padding: 12px;
+    background-color: #f4f2e9;
+
+    img {
+        width: 70px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 4px;
+    }
+
+    > div {
+        margin-left: 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .title {
+        font-weight: 600;
+    }
+
+    .btn-container{
+        display: flex;
+        justify-content: start;
+        align-items:stretch;
+
+    }
+    label{
+        display: flex;
+        justify-content: flex-start;
+        height: 100%;
+        gap: 4px;
+    }
+    button{
+        padding: 8px 12px;
+
+    }
+
+    .image{
+        display: flex;
+
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+
+    transition: all .15s ease-in-out;
+
+}
+
+.book:hover{
+    scale: 1.05;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+}
+
+dialog {
+    width: 450px;
+    height: 350px;
+    background-color: #f4f2e9;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+
+}
+
+dialog::backdrop {
+    background-color: gray;
+    opacity: 0.75;
+}
+
+form{
+    font-size: 1.3rem;
+    legend{
+        margin-bottom: 12px;
+    }
+
+    fieldset{
+        display: grid;
+        grid-template-columns: .5fr 2fr;
+        margin-bottom: 12px;
+        border: none;
+      
+    }
+
+    .last-child{
+        align-items: center;
+    }
+
+    input{
+        height: 30px;
+        border-radius: 8px;
+        outline: none;
+        border: 1px solid black;
+        padding-left: 12px;
+        font-size: 1.1rem;
+    }
+
+    input[type='file']{
+        border: none;
+    }
+
+    input[type='checkbox']{
+        justify-self: start;
+    }
+
+    button{
+        padding: 8px 16px;
+        font-size: 1.2rem;
+        background-color: #409d69;
+        color: white;
+    }
+
+}
+
+
+  

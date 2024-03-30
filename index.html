@@ -10,12 +10,61 @@
 <body>
     <header>
         <h1>Library</h1>
-        <button>NEW BOOK</button>
+        <dialog>
+            <form action="">
+                <legend>Add New Book</legend>
+                <fieldset>
+                    <label for="titleInput">Title</label>
+                    <input type="text" name="title" id="titleInput">
+                </fieldset>
+                <fieldset>
+                    <label for="authorInput">Author</label>
+                    <input type="text" name="author" id="authorInput">
+                </fieldset>
+                <fieldset>
+                    <label for="pagesInput">Pages</label>
+                    <input type="text" name="pages" id="pagesInput">
+                </fieldset>
+                <fieldset>
+                    <label for="fileInput">Cover</label>
+                    <input type="file" accept=".png, .jpg " id="fileInput">
+                </fieldset>
+
+                <fieldset class="last-child">
+                    <label for="is-read">Read</label>
+                    <input type="checkbox" name="read" id="is-read">
+                </fieldset>
+
+                <button id="add-btn" type="submit">Add</button>
+            </form>
+        </dialog>
+
     </header>
     <main>
-        <div class="container">
+        <button id="add-new">NEW BOOK</button>
 
+        <div class="book-container">
+            <div class="book" data-index="0">
+                <div class="image">
+                    <img src="https://picsum.photos/id/1067/600/400" alt="">
+                    <button>Remove</button>
+                </div>
+                <div>
+                        <p class="title"> A Book</p>
+                        <p class="author">by John Doe</p>
+                        <p class="pages">999 pages</p>
+                        <div class="btn-container">
+                            <label>Read
+                                <input type="checkbox" name='read' class="read">
+                            </label>
+                            
+                        </div>
+                </div>
+
+            </div>
         </div>
+
+        
     </main>
 
 </body>
