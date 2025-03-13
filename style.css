@@ -1,0 +1,235 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+header{
+    padding: 24px;
+}
+
+body {
+    background-color: antiquewhite;
+    font-family: 'Fira Code', sans-serif;
+    gap: 24px;
+    text-align: center;
+}
+
+.bookCard {
+    border: 2px solid coral;
+    width: 250px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background-color: cadetblue;
+    border-radius: 12px;
+    position: relative;
+    justify-content: space-between;
+    border: 2px solid black;
+}
+
+.bookCard p,
+.bookCard span {
+    align-self: flex-start;
+}
+
+.bookCard h2 {
+    align-self: center;
+}
+
+.bookCard img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.bookCard button {
+    flex-grow: 0;
+    width: 100px;
+    padding: 4px 8px;
+    background-color: coral;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.15s ease-in-out;
+    border: 2px solid transparent;
+}
+
+.bookCard button:hover {
+    transform: scale(1.1);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+
+main button{
+    margin-bottom: 24px;
+    padding: 8px 12px;
+    font-size: 1.2rem;
+    background-color: coral;
+    border-radius: 8px;
+    border: 2px solid transparent;
+
+    cursor: pointer;
+    transition: all .15s ease-in;
+
+}
+
+main button:hover{
+    border: 2px solid black;
+    transform: scale(1.1);
+
+}
+
+.bookCointainer {
+    padding: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    
+
+    margin: 0 auto;
+    max-width: 1200px;
+}
+.bookCard button {
+    flex-grow: 0;
+    width: 100px;
+    padding: 4px 8px;
+    background-color: coral;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.15s ease-in-out;
+    border: 2px solid transparent;
+}
+
+.bookCard button:hover {
+    transform: scale(1.1);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+main button{
+    margin-bottom: 24px;
+    padding: 8px 12px;
+    font-size: 1.2rem;
+    background-color: coral;
+    border-radius: 8px;
+    border: 2px solid transparent;
+
+    cursor: pointer;
+    transition: all .15s ease-in;
+
+}
+
+main button:hover{
+    border: 2px solid black;
+    transform: scale(1.1);
+
+}
+
+.bookCointainer {
+    padding: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    
+
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+dialog{
+    padding: 24px;
+}
+input{
+    outline: none;
+
+}
+
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid darkslategray;
+    border-radius: 8px;
+}
+
+input[type="number"] {
+    width: 50%;
+    padding: 4px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid darkslategray;
+    border-radius: 8px;
+}
+
+select {
+    padding: 8px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+}
+dialog button {
+    margin-top: 16px;
+    padding: 8px 12px;
+    font-size: 1.2rem;
+    background-color: coral;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.15s ease-in;
+}
+
+dialog button:hover {
+    border: 2px solid black;
+    transform: scale(1.1);
+}
+
+dialog {
+
+    padding: 24px;
+    background-color: cadetblue;
+    border: 2px solid black;
+    border-radius: 12px;
+    color: black;
+    font-size: 1.2rem;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all .15s ease-in;
+
+}
+
+dialog::backdrop{
+    backdrop-filter: blur(5px);
+    transition: all .15s ease-in;
+}
+
+
+
+
+
+
+
+
+
