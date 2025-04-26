@@ -5,17 +5,24 @@ const addBookDialog = document.getElementById('addBookDialog')
 const saveBookBtn = document.getElementById('saveBookBtn')
 const cancelBtn = document.getElementById('cancelBtn')
 
-function Book(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-    this.id = crypto.randomUUID();
+class Book {
+    constructor(title, author, pages, read){
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+        this.id = crypto.randomUUID();
+    }
+
+    changeStatus(){
+        this.read = !this.read
+    }
+    
 }
 
-Book.prototype.changeStatus = function(){
-    this.read = !this.read;
-}
+
+
+
 
 function addBookToLibrary(title, author, pages, read) {
     const book = new Book(title, author, pages, read);
